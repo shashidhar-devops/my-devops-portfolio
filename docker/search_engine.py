@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+
+import http.server
+import socketserver
+
+PORT=80
+
+Handler= http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+	print(f"Amazon web server is LIVE at port {PORT}")
+	httpd.serve_forever()
+
